@@ -1,6 +1,11 @@
 /*
 Beste Geerke,
 
+install go: https://golang.org/doc/install
+git clone https://github.com/okke/sint2022.git
+cd sint2022
+go build
+./sint2022
 
 */
 package main
@@ -11,6 +16,13 @@ import (
 	"reflect"
 	"time"
 )
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+	for _, r := range RHYME {
+		fmt.Println(r)
+	}
+}
 
 type twoLines struct {
 	lines  []string
@@ -30,6 +42,16 @@ func (lines twoLines) String() string {
 		fmt.Sprintf(lines.lines[1], word2, rhymeWord2))
 }
 
+
+
+
+
+
+
+
+
+
+
 var RHYME = []twoLines{
 	{
 		lines: []string{
@@ -38,7 +60,7 @@ var RHYME = []twoLines{
 		},
 		words: [][]string{
 			{"Sint", "Piet", "Enge man met grote baard"},
-			{"Geerke", "Rebecca", "Leids studentje"},
+			{"Geerke", "Rebecca", "Leids studentje", "Lui Wezen"},
 		},
 		rhymes: map[string][]string{
 			"denken":   {"schenken", "herdenken", "krenken"},
@@ -59,13 +81,17 @@ var RHYME = []twoLines{
 			"fatsoenlijke clue": {"wilde kangoeroe", "flinke lading doekoe", "welgemeende 'fuck you'"},
 		},
 	},
-}
-
-func main() {
-
-	rand.Seed(time.Now().UnixNano())
-	for _, r := range RHYME {
-		fmt.Println(r)
-	}
-
+	{
+		lines: []string{
+			"wel %s %s",
+			"maar %s %s",
+		},
+		words: [][]string{
+			{"een beetje", "un petit peu"},
+			{"heel veel", "vooruit,"},
+		},
+		rhymes: map[string][]string{
+			"cliché":    {"plezier er mee"},
+		},
+	},
 }
